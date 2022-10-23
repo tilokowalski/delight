@@ -1,0 +1,17 @@
+{
+    "name": "tilokowalski/delight",
+    "description": "Web Toolkit",
+    "type": "library",
+    "license": "Apache-2.0",
+    "autoload": {
+        "classmap": ["src/"]
+    },
+    "authors": [
+        {
+            "name": "Tilo Kowalski",
+            "email": "privat@tilokowalski.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
