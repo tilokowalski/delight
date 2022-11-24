@@ -2,6 +2,6 @@
 <? if (!$this->get_inline()): ?><br /><? endif ?>
 <select name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' data-required=\'true\'' ?>><?= $this->get_prefilled_value() ?>
 <? foreach ($this->options as $key => $value): ?>
-    <option value=<?= $key ?>'><?= $value ?></option>
+    <option value='<?= $key ?>'><?= $value ?></option>
 <? endforeach ?>
 </select>
