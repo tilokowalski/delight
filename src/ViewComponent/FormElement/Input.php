@@ -7,6 +7,10 @@ class Delight_ViewComponent_FormElement_Input extends Delight_ViewComponent_Form
     private $prefilled_value;
     private $disabled = false;
 
+    private $step = 1;
+    private $min = 0;
+    private $max = -1;
+
     public static function text(string $name, ?string $title = null, ?bool $required = false): self {
         $result = new self($name, $title, $required);
         return $result->set_type('text');
@@ -25,6 +29,16 @@ class Delight_ViewComponent_FormElement_Input extends Delight_ViewComponent_Form
     public static function password(string $name, ?string $title = null, ?bool $required = false): self {
         $result = new self($name, $title, $required);
         return $result->set_type('password');
+    }
+
+    public static function date(string $name, ?string $title = null, ?bool $required = false): self {
+        $result = new self($name, $title, $required);
+        return $result->set_type('date');
+    }
+
+    public static function number(string $name, ?string $title = null, ?bool $required = false): self {
+        $result = new self($name, $title, $required);
+        return $result->set_type('number');
     }
 
     public static function checkbox(string $name, ?string $title = null, ?bool $required = false): self {
@@ -57,7 +71,8 @@ class Delight_ViewComponent_FormElement_Input extends Delight_ViewComponent_Form
         return $this->disabled;
     }
 
-    public function set_prefilled_value(?string $prefilled_value = null) {
+    public function set_prefilled_value($prefilled_value = null) { 
+        if ($prefilled_value instanceof DateTime) Delight_Assert::equals($this->get_type(), 'date', 'prefilled value date can not be assigned to input of type ' . $this->get_type());
         Delight_Assert::not_equals($this->get_type(), 'checkbox', 'input of type checkbox is to be handled with set_checked');
         $this->prefilled_value = $prefilled_value;
         return $this;
@@ -80,6 +95,42 @@ class Delight_ViewComponent_FormElement_Input extends Delight_ViewComponent_Form
     public function is_checked() {
         Delight_Assert::equals($this->get_type(), 'checkbox', 'input of type ' . $this->get_type() . ' can not be \'checked\'');
         return $this->get_value() === 'on';
+    }
+
+    public function set_step($step) {
+        Delight_Assert::equals($this->get_type(), 'number', 'step can only be set for inputs of type number');
+        $this->step = $step;
+        return $this;
+    }
+
+    public function set_min($min) {
+        Delight_Assert::equals($this->get_type(), 'number', 'min can only be set for inputs of type number');
+        $this->min = $min;
+        return $this;
+    }
+
+    public function set_max($max) {
+        Delight_Assert::equals($this->get_type(), 'number', 'max can only be set for inputs of type number');
+        $this->max = $max;
+        return $this;
+    }
+
+    public function set_step_min_max($step, $min, $max) {
+        $this->set_step($step);
+        $this->set_min($min);
+        $this->set_max($max);
+    }
+
+    public function get_step() {
+        return $this->step;
+    }
+
+    public function get_min() {
+        return $this->min;
+    }
+
+    public function get_max() {
+        return $this->max;
     }
 
 }

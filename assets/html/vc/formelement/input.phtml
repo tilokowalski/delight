@@ -6,6 +6,14 @@
     <label for='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' class=\'required\'' ?>><?= $this->get_title() ?></label>
     <? if (!$this->get_inline()): ?><br /><? endif ?>
     <input type='password' name='<?= $this->get_name() ?>' value='<?= $this->get_prefilled_value() ?>' id='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' data-required=\'true\'' ?><? if ($this->is_disabled()) echo ' disabled' ?>>
+<? elseif ($this->get_type() === 'date'): ?>
+    <label for='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' class=\'required\'' ?>><?= $this->get_title() ?></label>
+    <? if (!$this->get_inline()): ?><br /><? endif ?>
+    <input type='date' name='<?= $this->get_name() ?>' value='<?= $this->get_prefilled_value() ?>' id='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' data-required=\'true\'' ?><? if ($this->is_disabled()) echo ' disabled' ?>>
+<? elseif ($this->get_type() === 'number'): ?>
+    <label for='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' class=\'required\'' ?>><?= $this->get_title() ?></label>
+    <? if (!$this->get_inline()): ?><br /><? endif ?>
+    <input type='number' step='<?= $this->get_step() ?>' min='<?= $this->get_min() ?>' max='<?= $this->get_max() ?>' name='<?= $this->get_name() ?>' value='<?= $this->get_prefilled_value() ?>' id='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' data-required=\'true\'' ?><? if ($this->is_disabled()) echo ' disabled' ?>>
 <? elseif ($this->get_type() === 'hidden'): ?>
     <input type='hidden' name='<?= $this->get_name() ?>' value='<?= $this->get_prefilled_value() ?>' id='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' data-required=\'true\'' ?><? if ($this->is_disabled()) echo ' disabled' ?>>
 <? else: ?>
