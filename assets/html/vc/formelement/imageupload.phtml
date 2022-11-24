@@ -1,0 +1,3 @@
+<label for='<?= $this->get_name() ?>'><?= $this->get_title() ?></label>
+<? if (!$this->get_inline()): ?><br /><? endif ?>
+<input type='file' name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>'>
