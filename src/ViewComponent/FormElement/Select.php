@@ -10,6 +10,10 @@ class Delight_ViewComponent_FormElement_Select extends Delight_ViewComponent_For
         $this->options[$value] = $title;
     }
 
+    public function get_options() {
+        return $this->options;
+    }
+
     public function set_prefilled_value($prefilled_value = null) { 
         $this->prefilled_value = $prefilled_value;
         return $this;
