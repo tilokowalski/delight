@@ -13,4 +13,8 @@ class Delight_ViewComponent_FormElement_ImageUpload extends Delight_ViewComponen
         return $this->prefilled_value;
     }
 
+    public function get_value() {
+        return $_FILES[$this->get_name()]['tmp_name'];
+    }
+
 }

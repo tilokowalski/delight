@@ -1,3 +1,7 @@
 <label for='<?= $this->get_name() ?>'><?= $this->get_title() ?></label>
 <? if (!$this->get_inline()): ?><br /><? endif ?>
-<input type='file' name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>'>
+<div class='vc-imgupload-wrapper'>
+    <input type='file' class='vc-imgupload-input' accept="image/png, image/jpeg" name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>'>
+    <img src='<?= $this->get_prefilled_value() ?>' class='vc-imgupload-img' />
+    <button type='button' class='vc-imgupload-button'>Datei auswählen</button>
+</div>

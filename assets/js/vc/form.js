@@ -12,8 +12,24 @@ $('.delight-vc.form').each(function() {
         }
     });
 
+    form.find('button.vc-imgupload-button').click(function() {
+        $(this).parent().find('input.vc-imgupload-input').click();
+    });
+
+    
+    form.find('input.vc-imgupload-input').change(function() {
+        var input = $(this);
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                input.parent().find('img.vc-imgupload-img').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
     form.find('button.cancel').click(function() {
-        window.location = window.location.href.split('?')[0];
+        history.back();
     });
 
     form.submit(function(e) {
