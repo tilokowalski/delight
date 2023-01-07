@@ -3,7 +3,7 @@
 class Delight_Application {
 
     public static function is_localhost() {
-        return in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']);
+        return isset($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']);
     }
     
     public static function redirect(string $target) {
