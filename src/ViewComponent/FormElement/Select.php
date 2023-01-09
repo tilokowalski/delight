@@ -1,6 +1,7 @@
 <?php
 
-class Delight_ViewComponent_FormElement_Select extends Delight_ViewComponent_FormElement {
+namespace Delight\ViewComponent\FormElement;
+class Select extends \Delight\ViewComponent\FormElement {
 
     private $options;
 

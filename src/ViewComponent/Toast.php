@@ -1,6 +1,10 @@
 <?php
 
-class Delight_ViewComponent_Toast extends Delight_ViewComponent {
+namespace Delight\ViewComponent;
+
+use Delight\Assert;
+
+class Toast extends \Delight\ViewComponent {
 
     const TYPE_SUCCESS = 'success';
     const TYPE_WARNING = 'warning';
@@ -53,7 +57,7 @@ class Delight_ViewComponent_Toast extends Delight_ViewComponent {
     }
 
     public function set_position(string $position) {
-        Delight_Assert::in_array($position, [self::POSITION_TOP_LEFT, self::POSITION_TOP_RIGHT, self::POSITION_TOP_CENTER, self::POSITION_BOTTOM_LEFT, self::POSITION_BOTTOM_RIGHT, self::POSITION_BOTTOM_CENTER], $position . ' is not a valid position');
+        Assert::in_array($position, [self::POSITION_TOP_LEFT, self::POSITION_TOP_RIGHT, self::POSITION_TOP_CENTER, self::POSITION_BOTTOM_LEFT, self::POSITION_BOTTOM_RIGHT, self::POSITION_BOTTOM_CENTER], $position . ' is not a valid position');
         $this->position = $position;
         return $this;
     }

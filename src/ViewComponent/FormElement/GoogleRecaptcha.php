@@ -1,6 +1,11 @@
 <?php
 
-class Delight_ViewComponent_FormElement_GoogleRecaptcha extends Delight_ViewComponent_FormElement {
+namespace Delight\ViewComponent\FormElement;
+
+use Delight\Assert;
+use Delight\Application;
+
+class GoogleRecaptcha extends \Delight\ViewComponent\FormElement {
 
     private $key;
     private $secret;
@@ -31,8 +36,8 @@ class Delight_ViewComponent_FormElement_GoogleRecaptcha extends Delight_ViewComp
 
     public function get_response() {
         if (null === $this->response) {
-            Delight_Assert::is_true($this->get_form()->is_submitted(), 'captcha success validation called before form submission');
-            Delight_Assert::is_true($this->is_set());
+            Assert::is_true($this->get_form()->is_submitted(), 'captcha success validation called before form submission');
+            Assert::is_true($this->is_set());
 
             $data = array(
                 'secret' => $this->get_secret(),
@@ -58,13 +63,13 @@ class Delight_ViewComponent_FormElement_GoogleRecaptcha extends Delight_ViewComp
     }
 
     public function was_successful() {
-        if (Delight_Application::is_localhost()) return true;
+        if (Application::is_localhost()) return true;
         return $this->get_response()->success;
     }
 
     public function render() {
-        Delight_Assert::not_null($this->key, 'recaptcha vc can not be rendered without a key');
-        Delight_Assert::not_null($this->secret, 'recaptcha vc can not be rendered without a secret');
+        Assert::not_null($this->key, 'recaptcha vc can not be rendered without a key');
+        Assert::not_null($this->secret, 'recaptcha vc can not be rendered without a secret');
         parent::render();
     }
 

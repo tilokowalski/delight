@@ -1,6 +1,7 @@
 <?php
 
-class Delight_ViewComponent_Video extends Delight_ViewComponent {
+namespace Delight\ViewComponent;
+class Video extends \Delight\ViewComponent {
 
     private $src;
 
@@ -13,7 +14,7 @@ class Delight_ViewComponent_Video extends Delight_ViewComponent {
     private $muted;
 
     public function __construct(string $src, ?bool $timelineable = true, ?bool $controlable = true, ?bool $fullscreenable = true, ?bool $pausable = true, ?bool $autoplay = false, ?bool $muted = false) {
-        Delight_Assert::mime_content_type($src, 'video/', 'source file ' . $src . ' is not a playable video');
+        \Delight\Assert::mime_content_type($src, 'video/', 'source file ' . $src . ' is not a playable video');
         $this->src = $src;
 
         $this->set_timelineable($timelineable);

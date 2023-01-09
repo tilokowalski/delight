@@ -1,6 +1,8 @@
 <?php
 
-class Delight_Application {
+namespace Delight;
+
+class Application {
 
     public static function is_localhost() {
         return isset($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']);

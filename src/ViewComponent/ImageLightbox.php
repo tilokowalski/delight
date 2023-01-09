@@ -1,6 +1,7 @@
 <?php
 
-class Delight_ViewComponent_ImageLightbox extends Delight_ViewComponent {
+namespace Delight\ViewComponent;
+class ImageLightbox extends \Delight\ViewComponent {
 
     private $images;
 

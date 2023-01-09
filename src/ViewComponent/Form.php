@@ -1,6 +1,12 @@
 <?php
 
-class Delight_ViewComponent_Form extends Delight_ViewComponent {
+namespace Delight\ViewComponent;
+
+use Delight\Assert;
+use Delight\ViewComponent\FormElement;
+use Delight\ViewComponent\FormElement\Input;
+
+class Form extends \Delight\ViewComponent {
 
     const METHODS_VALID = array('POST', 'GET');
 
@@ -43,8 +49,8 @@ class Delight_ViewComponent_Form extends Delight_ViewComponent {
 
 
     public function set_method(string $method): self {
-        $method = Delight_String::from($method)->to_upper();
-        Delight_Assert::in_array($method, self::METHODS_VALID, 'method ' . $method . ' is not an implemented form method');
+        $method = strtoupper($method);
+        Assert::in_array($method, self::METHODS_VALID, 'method ' . $method . ' is not an implemented form method');
         $this->method = $method;
         return $this;
     }
@@ -59,7 +65,7 @@ class Delight_ViewComponent_Form extends Delight_ViewComponent {
         return $this;
     }
 
-    public function add_element(Delight_ViewComponent_FormElement $form_element): self {
+    public function add_element(FormElement $form_element): self {
         $form_element->set_form($this);
         $this->form_elements[] = $form_element;
         return $this;
@@ -68,7 +74,7 @@ class Delight_ViewComponent_Form extends Delight_ViewComponent {
     public function is_submitted(): bool {
         foreach ($this->form_elements as $form_element) {
             if (!$form_element->is_required()) continue;
-            if ($form_element instanceof Delight_ViewComponent_FormElement_Input && $form_element->get_type() === 'checkbox') continue;
+            if ($form_element instanceof Input && $form_element->get_type() === 'checkbox') continue;
             if (!$form_element->is_set()) return false;
         }
         return true;

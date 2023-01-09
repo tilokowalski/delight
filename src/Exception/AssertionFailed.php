@@ -1,6 +1,9 @@
 <?php
 
-class Delight_Exception_AssertionFailed extends Delight_Exception {
+namespace Delight\Exception;
+
+
+class AssertionFailed extends \Delight\Exception {
 
     public function __construct(?string $message = null) {
         if (null === $message) $message = 'assertion failed';

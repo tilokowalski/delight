@@ -1,6 +1,8 @@
 <?php
 
-class Delight_Exception_NotImplemented extends Delight_Exception {
+namespace Delight\Exception;
+
+class NotImplemented extends \Delight\Exception {
 
     public function __construct(?string $message = null) {
         if (null === $message) $message = 'not implemented';

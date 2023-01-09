@@ -1,5 +1,7 @@
 <?php
 
-abstract class Delight_Exception extends Exception {
+namespace Delight;
+
+abstract class Exception extends \Exception {
     
 }

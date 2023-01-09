@@ -1,6 +1,11 @@
 <?php
 
-abstract class Delight_ViewComponent_FormElement extends Delight_ViewComponent {
+namespace Delight\ViewComponent;
+
+use Delight\ViewComponent\Form;
+use Delight\Exception\NotImplemented;
+
+class FormElement extends \Delight\ViewComponent {
 
     private $form;
 
@@ -31,7 +36,7 @@ abstract class Delight_ViewComponent_FormElement extends Delight_ViewComponent {
         return $this->inline;
     }
 
-    public function set_form(Delight_ViewComponent_Form $form): self {
+    public function set_form(Form $form): self {
         $this->form = $form;
         return $this;
     }
@@ -55,7 +60,7 @@ abstract class Delight_ViewComponent_FormElement extends Delight_ViewComponent {
         switch ($this->form->get_method()) {
             case 'POST': return isset($_POST[$this->get_name()]);
             case 'GET': return isset($_GET[$this->get_name()]);
-            default: throw new Delight_Exception_NotImplemented('no implementation for form method ' . $this->form->get_method());
+            default: throw new NotImplemented('no implementation for form method ' . $this->form->get_method());
         }
     }
 
@@ -64,7 +69,7 @@ abstract class Delight_ViewComponent_FormElement extends Delight_ViewComponent {
         switch ($this->form->get_method()) {
             case 'POST': return $_POST[$this->get_name()];
             case 'GET': return $_GET[$this->get_name()];
-            default: throw new Delight_Exception_NotImplemented('no implementation for form method ' . $this->form->get_method());
+            default: throw new NotImplemented('no implementation for form method ' . $this->form->get_method());
         }
     }
 

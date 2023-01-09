@@ -1,6 +1,11 @@
 <?php
 
-abstract class Delight_ViewComponent {
+namespace Delight;
+
+use Delight\Application;
+use Delight\Assert;
+
+abstract class ViewComponent {
 
     private $name;
     private $classes;
@@ -15,20 +20,20 @@ abstract class Delight_ViewComponent {
 
     private function get_component_name() {
         $result = '';
-        foreach (Delight_String::from(get_called_class())->explode('_') as $key => $segment) {
+        foreach (explode('_', get_called_class()) as $key => $segment) {
             if ($key <= 1) continue;
             $result .= '/' . $segment;
         }
-        return Delight_String::from($result)->to_lower();
+        return strtolower($result);
     }
 
     public function get_component_file() {
         $content_file = 'vendor/tilokowalski/delight/assets/html/vc' . $this->get_component_name() . '.phtml';
-        $content_file = Delight_Application::prepare_url($content_file);
+        $content_file = Application::prepare_url($content_file);
         if (!file_exists($content_file)) {
             $content_file = 'assets/html/vc' . $this->get_component_name() . '.phtml';
-            $content_file = Delight_Application::prepare_url($content_file);
-            Delight_Assert::file_exists($content_file, 'missing vc content file: ' . $content_file);
+            $content_file = Application::prepare_url($content_file);
+            Assert::file_exists($content_file, 'missing vc content file: ' . $content_file);
         }
         return $content_file;
     }
