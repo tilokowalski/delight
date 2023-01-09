@@ -19,7 +19,8 @@ abstract class ViewComponent {
     }
 
     private function get_component_name() {
-        return strtolower(get_called_class());
+        $reflection_class = new \ReflectionClass(get_called_class());
+        return strtolower($reflection_class->getShortName());
     }
 
     public function get_component_file() {
