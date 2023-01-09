@@ -19,12 +19,7 @@ abstract class ViewComponent {
     }
 
     private function get_component_name() {
-        $result = '';
-        foreach (explode('_', get_called_class()) as $key => $segment) {
-            if ($key <= 1) continue;
-            $result .= '/' . $segment;
-        }
-        return strtolower($result);
+        return strtolower(get_called_class());
     }
 
     public function get_component_file() {
