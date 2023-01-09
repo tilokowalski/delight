@@ -27,7 +27,7 @@ abstract class ViewComponent {
         $content_file = 'vendor/tilokowalski/delight/assets/html/vc' . $this->get_component_name() . '.phtml';
         $content_file = Application::prepare_url($content_file);
         if (!file_exists($content_file)) {
-            $content_file = 'assets/html/vc' . $this->get_component_name() . '.phtml';
+            $content_file = 'assets/html/vc/' . $this->get_component_name() . '.phtml';
             $content_file = Application::prepare_url($content_file);
             Assert::file_exists($content_file, 'missing vc content file: ' . $content_file);
         }
