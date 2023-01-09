@@ -1,6 +1,4 @@
 /vendor
 /node_modules
 
-/assets/userdata
-
 gulpfile.js
