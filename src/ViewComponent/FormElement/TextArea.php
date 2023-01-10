@@ -1,7 +1,7 @@
 <?php
 
 namespace Delight\ViewComponent\FormElement;
-class Textarea extends \Delight\ViewComponent\FormElement {
+class TextArea extends \Delight\ViewComponent\FormElement {
 
     private $prefilled_value;
 
