@@ -1,4 +1,4 @@
-<table>
+<table class="tinymce-header">
     <tr>
         <td>
             <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
@@ -7,7 +7,7 @@
             </label>
         </td>
         <td>
-            <i class="fa fa-chevron-down collapse-editor" data-editor="<?= $this->get_name() ?>"></i>
+            <span class="collapse-editor" data-editor="<?= $this->get_name() ?>"><i class="fa fa-chevron-down"></i></span>
         </td>
     </tr>
 </table>

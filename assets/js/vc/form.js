@@ -3,9 +3,9 @@ $('.delight-vc.form').each(function() {
 
     const form = $(this);
 
-    form.find('i.collapse-editor').click(function() {
+    form.find('span.collapse-editor').click(function() {
         var editor = $("div.tinymce-editor[data-editor='" + $(this).attr('data-editor') + "']");
-        $("div.tinymce-editor[data-editor='" + editor + "']").animate({height: editor.height() == 0 ? 'auto' : 0}, 500);
+        editor.animate({height: editor.height() == 0 ? 'auto' : 0}, 500);
     });
 
     form.find(':input').on('input', function() {
