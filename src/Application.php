@@ -12,6 +12,10 @@ class Application {
         echo "<script>window.location = '" . $target . "';</script>";
         exit;
     }
+    
+    public static function redirect_back() {
+        self::redirect($_SERVER['HTTP_REFERER']);
+    }
 
     public static function set_cookie($name, $value, $expiration, ?string $path = '/') {
         echo "<script>$.cookie('" . $name . "', '" . $value . "', { expires: " . $expiration . ", path: '" . $path . "' })</script>";
