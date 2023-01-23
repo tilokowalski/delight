@@ -4,6 +4,7 @@ namespace Delight\ViewComponent\FormElement;
 
 use Delight\Assert;
 use Delight\Application;
+use PHPMailer\PHPMailer\Exception;
 
 class GoogleRecaptcha extends \Delight\ViewComponent\FormElement {
 
@@ -71,6 +72,10 @@ class GoogleRecaptcha extends \Delight\ViewComponent\FormElement {
         Assert::not_null($this->key, 'recaptcha vc can not be rendered without a key');
         Assert::not_null($this->secret, 'recaptcha vc can not be rendered without a secret');
         parent::render();
+    }
+
+    public function set_prefilled_value($prefilled_value = null) {
+        throw new Exception("setting prefilled values to recaptcha is not allowed");
     }
 
 }

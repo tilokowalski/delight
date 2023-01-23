@@ -1,0 +1,18 @@
+
+<label for='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' class=\'required\'' ?>><?= $this->get_title() ?></label>
+<? if (!$this->get_inline()): ?><br /><? endif ?>
+<textarea name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>'<? if ($this->is_required()) echo ' data-required=\'true\'' ?>><?= $this->get_prefilled_value() ?></textarea>
+<script>
+  tinyMCE.init({
+    theme : "advanced",
+    mode: "exact",
+    elements : <?= $this->get_name() ?>,
+    theme_advanced_toolbar_location : "top",
+    theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,"
+    + "justifyleft,justifycenter,justifyright,justifyfull,formatselect,"
+    + "bullist,numlist,outdent,indent",
+    theme_advanced_buttons2 : "link,unlink,anchor,image,separator,"
+    +"undo,redo,cleanup,code,separator,sub,sup,charmap",
+    theme_advanced_buttons3 : ""
+});
+</script>
