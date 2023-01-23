@@ -14,7 +14,8 @@ class Application {
     }
     
     public static function redirect_back() {
-        self::redirect($_SERVER['HTTP_REFERER']);
+        echo "<script>history.back();</script>";
+        exit;
     }
 
     public static function set_cookie($name, $value, $expiration, ?string $path = '/') {
