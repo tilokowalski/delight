@@ -1,4 +1,4 @@
-<?php
+<?
 
 namespace Delight;
 
@@ -19,15 +19,14 @@ abstract class ViewComponent {
     }
 
     private function get_component_name() {
-        $reflection_class = new \ReflectionClass(get_called_class());
-        return strtolower($reflection_class->getShortName());
+        return explode('/', str_replace('\\', '/', get_called_class()), 2)[1];
     }
 
     public function get_component_file() {
-        $content_file = 'vendor/tilokowalski/delight/assets/html/vc/' . $this->get_component_name() . '.phtml';
+        $content_file = 'vendor/tilokowalski/delight/assets/html/' . $this->get_component_name() . '.phtml';
         $content_file = Application::prepare_url($content_file);
         if (!file_exists($content_file)) {
-            $content_file = 'assets/html/vc/' . $this->get_component_name() . '.phtml';
+            $content_file = 'assets/html/' . $this->get_component_name() . '.phtml';
             $content_file = Application::prepare_url($content_file);
             Assert::file_exists($content_file, 'missing vc content file: ' . $content_file);
         }

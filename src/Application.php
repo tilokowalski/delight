@@ -12,6 +12,11 @@ class Application {
         echo "<script>window.location = '" . $target . "';</script>";
         exit;
     }
+    
+    public static function redirect_back() {
+        echo "<script>history.back();</script>";
+        exit;
+    }
 
     public static function set_cookie($name, $value, $expiration, ?string $path = '/') {
         echo "<script>$.cookie('" . $name . "', '" . $value . "', { expires: " . $expiration . ", path: '" . $path . "' })</script>";

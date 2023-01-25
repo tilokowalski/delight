@@ -8,7 +8,6 @@ class Input extends \Delight\ViewComponent\FormElement {
 
     private $type;
     private $checked = false;
-    private $prefilled_value;
     private $disabled = false;
 
     private $step = 1;
@@ -78,12 +77,7 @@ class Input extends \Delight\ViewComponent\FormElement {
     public function set_prefilled_value($prefilled_value = null) { 
         if ($prefilled_value instanceof \DateTime) Assert::equals($this->get_type(), 'date', 'prefilled value date can not be assigned to input of type ' . $this->get_type());
         Assert::not_equals($this->get_type(), 'checkbox', 'input of type checkbox is to be handled with set_checked');
-        $this->prefilled_value = $prefilled_value;
-        return $this;
-    }
-
-    public function get_prefilled_value() {
-        return $this->prefilled_value;
+        parent::set_prefilled_value($prefilled_value);
     }
 
     public function set_checked(?bool $checked = true): self {

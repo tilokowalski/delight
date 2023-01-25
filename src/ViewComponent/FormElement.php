@@ -11,6 +11,7 @@ class FormElement extends \Delight\ViewComponent {
 
     private $title;
     private $required;
+    private $prefilled_value;
 
     private $inline = true;
 
@@ -71,6 +72,15 @@ class FormElement extends \Delight\ViewComponent {
             case 'GET': return $_GET[$this->get_name()];
             default: throw new NotImplemented('no implementation for form method ' . $this->form->get_method());
         }
+    }
+
+    public function set_prefilled_value(?string $prefilled_value = null) {
+        $this->prefilled_value = $prefilled_value;
+        return $this;
+    }
+
+    public function get_prefilled_value() {
+        return $this->prefilled_value;
     }
 
 }

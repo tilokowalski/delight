@@ -103,5 +103,11 @@ class Form extends \Delight\ViewComponent {
         $this->add_class("form");
         return parent::get_class_list();
     }
+    
+    public function set_inline(?bool $inline = true) {
+        foreach ($this->get_form_elements() as $element) {
+            $element->set_inline($inline);
+        }
+    }
 
 }

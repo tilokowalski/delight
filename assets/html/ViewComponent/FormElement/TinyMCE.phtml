@@ -1,0 +1,30 @@
+<table class="tinymce-header">
+    <tr>
+        <td>
+            <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
+                  echo ' class=\'required\'' ?>>
+                <?= $this->get_title() ?>
+            </label>
+        </td>
+        <td class="right">
+            <span class="collapse-editor" data-editor="<?= $this->get_name() ?>"><i class="fa fa-chevron-down"></i></span>
+        </td>
+    </tr>
+</table>
+<hr>
+<div class="tinymce-editor" data-editor="<?= $this->get_name() ?>">
+    <textarea name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>' <? if ($this->is_required())
+            echo ' data-required=\'true\'' ?>><?= $this->get_prefilled_value() ?></textarea>
+    <script>
+        tinyMCE.init({
+            selector: '#<?= $this->get_name() ?>',
+            language: 'de',
+            menubar: false,
+            toolbar_sticky: true,
+            contextmenu: false,
+            browser_spellcheck: true,
+            plugins: 'fullscreen table charmap lists wordcount',
+            toolbar: 'undo redo | formatselect | bold italic underline | fontsize | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent | fullscreen removeformat'
+        });
+    </script>
+</div>
