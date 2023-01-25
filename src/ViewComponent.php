@@ -7,7 +7,7 @@ use Delight\Assert;
 
 abstract class ViewComponent {
 
-    private $name;
+    protected $name;
     private $classes;
 
     public function __construct(string $name) {
