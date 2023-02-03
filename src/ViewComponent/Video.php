@@ -23,6 +23,9 @@ class Video extends \Delight\ViewComponent {
         $this->set_pausable($pausable);
         $this->set_autoplay($autoplay);
         $this->set_muted($muted);
+        
+        $this->add_class("video");
+        $this->add_class("paused");
     }
 
     public static function background(string $src) {
@@ -87,13 +90,6 @@ class Video extends \Delight\ViewComponent {
     public function set_muted(?bool $muted = true): self {
         $this->muted = $muted;
         return $this;
-    }
-
-    public function get_class_list() {
-        $this->add_class("delight-vc");
-        $this->add_class("video");
-        $this->add_class("paused");
-        return parent::get_class_list();
     }
 
 }

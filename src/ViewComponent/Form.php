@@ -22,9 +22,10 @@ class Form extends \Delight\ViewComponent {
     private $cancel_title = 'Abbrechen';
 
     public function __construct(string $name, ?string $method = 'post', ?string $action = null) {
+        parent::__construct($name);
         $this->set_method($method);
         $this->action = $action;
-        parent::__construct($name);
+        $this->add_class("form");
     }
 
     public function get_form_elements() {
@@ -99,7 +100,6 @@ class Form extends \Delight\ViewComponent {
     }
 
     public function get_class_list() {
-        $this->add_class("form");
         return parent::get_class_list();
     }
     
