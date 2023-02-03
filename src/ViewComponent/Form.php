@@ -99,7 +99,6 @@ class Form extends \Delight\ViewComponent {
     }
 
     public function get_class_list() {
-        $this->add_class("delight-vc");
         $this->add_class("form");
         return parent::get_class_list();
     }

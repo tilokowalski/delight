@@ -12,6 +12,7 @@ abstract class ViewComponent {
 
     public function __construct(string $name) {
         $this->name = $name;
+        $this->add_class("delight-vc");
     }
 
     public function get_name() {
