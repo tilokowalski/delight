@@ -6,9 +6,9 @@ use Delight\ViewComponent\FormElement\TextArea;
 
 class TinyMCE extends TextArea {
 
-    const DEFAULT_PLUGINS = 'fullscreen table charmap lists wordcount paste autosave';
+    const DEFAULT_PLUGINS = 'fullscreen table charmap lists wordcount paste autosave textcolor';
     const DEFAULT_TOOLBAR_1 = 'undo redo | preview | fullscreen removeformat restoredraft';
-    const DEFAULT_TOOLBAR_2 = 'formatselect | bold italic underline | fontsize | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent';
+    const DEFAULT_TOOLBAR_2 = 'formatselect | bold italic underline | fontsize forecolor | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent';
 
     private ?string $plugins = null;
     private ?string $toolbar_1 = null;
