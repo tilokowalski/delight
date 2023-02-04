@@ -19,6 +19,8 @@ class TinyMCE extends TextArea {
             'undo',
             'redo',
             '|',
+            'styles',
+            '|',
             'preview',
             '|',
             'fullscreen',
@@ -26,8 +28,6 @@ class TinyMCE extends TextArea {
             'restoredraft'
         ),
         array(
-            'styles',
-            '|',
             'bold', 
             'italic', 
             'underline', 
