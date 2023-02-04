@@ -11,7 +11,8 @@ class TinyMCE extends TextArea {
     const DEFAULT_TOOLBAR_2 = 'undo redo | preview | fullscreen removeformat | restoredraft';
 
     private ?string $plugins = null;
-    private ?string $toolbar = null;
+    private ?string $toolbar_1 = null;
+    private ?string $toolbar_2 = null;
 
     public function set_plugins(string $plugins): void {
         $this->plugins = $plugins;
