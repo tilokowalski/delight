@@ -6,39 +6,108 @@ use Delight\ViewComponent\FormElement\TextArea;
 
 class TinyMCE extends TextArea {
 
-    const DEFAULT_PLUGINS = 'fullscreen table charmap lists wordcount paste autosave textcolor';
-    const DEFAULT_TOOLBAR_1 = 'undo redo | preview | fullscreen removeformat restoredraft';
-    const DEFAULT_TOOLBAR_2 = 'formatselect | bold italic underline | fontsize forecolor | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent';
+    private array $plugins = array(
+        'fullscreen',
+        'lists',
+        'wordcount',
+        'autosave',
+        'textcolor',
+    );
 
-    private ?string $plugins = null;
-    private ?string $toolbar_1 = null;
-    private ?string $toolbar_2 = null;
-
-    public function set_plugins(string $plugins): void {
+    private array $toolbars = array(
+        array(
+            'undo',
+            'redo',
+            '|',
+            'preview',
+            '|',
+            'fullscreen',
+            'removeformat',
+            'restoredraft'
+        ),
+        array(
+            'styles',
+            '|',
+            'bold', 
+            'italic', 
+            'underline', 
+            '|', 
+            'fontsize', 
+            'forecolor', 
+            '|', 
+            'alignleft', 
+            'aligncenter', 
+            'alignright', 
+            'alignjustify', 
+            '|', 
+            'numlist', 
+            'bullist', 
+            '|', 
+            'outdent', 
+            'indent', 
+        )
+    );
+    
+    public function set_plugins(array $plugins): void {
         $this->plugins = $plugins;
     }
 
-    public function set_toolbar_1(string $toolbar_1): void {
-        $this->toolbar_1 = $toolbar_1;
-    }
-
-    public function set_toolbar_2(string $toolbar_2): void {
-        $this->toolbar_2 = $toolbar_2;
-    }
-
-    public function get_plugins(): string {
-        if ($this->plugins == null) return self::DEFAULT_PLUGINS;
+    public function get_plugins(): array {
         return $this->plugins;
     }
 
-    public function get_toolbar_1(): string {
-        if ($this->toolbar_1 == null) return self::DEFAULT_TOOLBAR_1;
-        return $this->toolbar_1;
+    public function add_plugin(string $plugin): void {
+        $this->plugins []= $plugin;
     }
 
-    public function get_toolbar_2(): string {
-        if ($this->toolbar_2 == null) return self::DEFAULT_TOOLBAR_2;
-        return $this->toolbar_2;
+    public function add_plugins(array $plugins): void {
+        $this->plugins = array_merge($this->plugins, $plugins);
     }
-    
+
+    public function get_plugin_list(): string {
+        return implode($this->plugins, " ");
+    }
+
+    public function set_toolbars(array $toolbars): void {
+        $this->toolbars = $toolbars;
+    }
+
+    public function get_toolbars(): array {
+        return $this->toolbars;
+    }
+
+    public function add_toolbar(array $toolbar): void {
+        $this->toolbars []= $toolbar;
+    }
+
+    public function add_toolbars(array $toolbars): void {
+        $this->toolbars = array_merge($this->toolbars, $toolbars);
+    }
+
+    public function set_toolbar(int $index, array $toolbar): void {
+        $this->toolbars[$index] = $toolbar;
+    }
+
+    public function get_toolbar(int $index): array {
+        return $this->toolbars[$index];
+    }
+
+    public function add_tool(int $toolbar_index, string $tool) {
+        $this->toolbars[$toolbar_index] []= $tool;
+    }
+
+    public function remove_tool(int $toolbar_index, string $tool) {
+        unset($this->toolbars[$toolbar_index][array_search($tool, $this->toolbars[$toolbar_index])])
+    }
+
+    public function get_toolbar_list(): string {
+        $result = "";
+        foreach ($this->toolbars as $toolbar) {
+            $result .= "'";
+            $result .= implode($toolbar, " ");
+            $result .= "', ";
+        }
+        return substr($result, 0, -2)
+    }
+     
 }
