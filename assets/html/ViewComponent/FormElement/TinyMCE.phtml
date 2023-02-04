@@ -1,16 +1,23 @@
-<table class="tinymce-header">
-    <tr>
-        <td>
-            <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
-                  echo ' class=\'required\'' ?>>
-                <?= $this->get_title() ?>
-            </label>
-        </td>
-        <td class="right">
-            <span class="collapse-editor" data-editor="<?= $this->get_name() ?>"><i class="fa fa-chevron-down"></i></span>
-        </td>
-    </tr>
-</table>
+<? if ($this->is_collapsible()): ?>
+    <table class="tinymce-header">
+        <tr>
+            <td>
+                <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
+                    echo ' class=\'required\'' ?>>
+                    <?= $this->get_title() ?>
+                </label>
+            </td>
+            <td class="right">
+                <span class="collapse-editor" data-editor="<?= $this->get_name() ?>"><i class="fa fa-chevron-down"></i></span>
+            </td>
+        </tr>
+    </table>
+<? else: ?>
+    <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
+        echo ' class=\'required\'' ?>>
+        <?= $this->get_title() ?>
+    </label>
+<? endif ?>
 <hr>
 <div class="tinymce-editor" data-editor="<?= $this->get_name() ?>">
     <textarea name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>' <? if ($this->is_required())

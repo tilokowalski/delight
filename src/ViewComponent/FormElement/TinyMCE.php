@@ -6,6 +6,8 @@ use Delight\ViewComponent\FormElement\TextArea;
 
 class TinyMCE extends TextArea {
 
+    private bool $collapsible = false;
+
     private array $plugins = array(
         'fullscreen',
         'lists',
@@ -47,6 +49,14 @@ class TinyMCE extends TextArea {
             'indent', 
         )
     );
+
+    public function set_collapsible(bool $collapsible = true): void {
+        $this->collapsible = $collapsible;
+    }
+
+    public function is_collapsible(): bool {
+        return $this->collapsible;
+    }
     
     public function set_plugins(array $plugins): void {
         $this->plugins = $plugins;
