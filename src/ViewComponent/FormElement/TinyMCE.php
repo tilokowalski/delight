@@ -9,8 +9,8 @@ class TinyMCE extends TextArea {
     const DEFAULT_PLUGINS = 'fullscreen table charmap lists wordcount';
     const DEFAULT_TOOLBAR = 'undo redo | formatselect | bold italic underline | fontsize | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent | fullscreen removeformat';
 
-    private string $plugins;
-    private string $toolbar;
+    private ?string $plugins = null;
+    private ?string $toolbar = null;
 
     public function set_plugins(string $plugins): void {
         $this->plugins = $plugins;
