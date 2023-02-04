@@ -65,7 +65,7 @@ class TinyMCE extends TextArea {
     }
 
     public function get_plugin_list(): string {
-        return implode($this->plugins, " ");
+        return implode(" ", $this->plugins);
     }
 
     public function set_toolbars(array $toolbars): void {
@@ -104,7 +104,7 @@ class TinyMCE extends TextArea {
         $result = "";
         foreach ($this->toolbars as $toolbar) {
             $result .= "'";
-            $result .= implode($toolbar, " ");
+            $result .= implode(" ", $toolbar);
             $result .= "', ";
         }
         return substr($result, 0, -2);
