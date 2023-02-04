@@ -23,8 +23,8 @@
             toolbar_sticky: true,
             contextmenu: false,
             browser_spellcheck: true,
-            plugins: '<?= $this->plugins ?>',
-            toolbar: '<?= $this->toolbar ?>'
+            plugins: '<?= $this->get_plugins() ?>',
+            toolbar: '<?= $this->get_toolbar() ?>'
         });
     </script>
 </div>
