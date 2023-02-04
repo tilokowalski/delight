@@ -97,7 +97,7 @@ class TinyMCE extends TextArea {
     }
 
     public function remove_tool(int $toolbar_index, string $tool) {
-        unset($this->toolbars[$toolbar_index][array_search($tool, $this->toolbars[$toolbar_index])])
+        unset($this->toolbars[$toolbar_index][array_search($tool, $this->toolbars[$toolbar_index])]);
     }
 
     public function get_toolbar_list(): string {
@@ -107,7 +107,7 @@ class TinyMCE extends TextArea {
             $result .= implode($toolbar, " ");
             $result .= "', ";
         }
-        return substr($result, 0, -2)
+        return substr($result, 0, -2);
     }
      
 }
