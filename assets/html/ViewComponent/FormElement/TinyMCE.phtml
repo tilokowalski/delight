@@ -23,8 +23,8 @@
             toolbar_sticky: true,
             contextmenu: false,
             browser_spellcheck: true,
-            plugins: 'fullscreen table charmap lists wordcount',
-            toolbar: 'undo redo | formatselect | bold italic underline | fontsize | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent | fullscreen removeformat'
+            plugins: '<?= $this->plugins ?>',
+            toolbar: '<?= $this->toolbar ?>'
         });
     </script>
 </div>
