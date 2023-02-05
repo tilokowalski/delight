@@ -14,6 +14,7 @@ class TinyMCE extends TextArea {
         'wordcount',
         'autosave',
         'textcolor',
+        'paste'
     );
 
     private array $toolbars = array(
