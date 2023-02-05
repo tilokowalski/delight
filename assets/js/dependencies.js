@@ -6,11 +6,11 @@ window.onload = function() {
 
     // Font Awesome prüfen
 
-    if ($('div.delight-vc.tinymce-editor').length) {
+    if ($('div.tinymce-editor').length) {
         if (typeof tinymce == 'undefined') announceProblem('tinymce (maybe also tinymce-i18n)');
     }
 
-    if ($('div.delight-vc.g-recaptcha').length) {
+    if ($('div.g-recaptcha').length) {
         if (typeof grecaptcha == 'undefined') announceProblem('google recaptcha');
     }
 
