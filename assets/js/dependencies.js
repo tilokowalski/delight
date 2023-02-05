@@ -10,13 +10,13 @@ window.onload = function() {
     span.style.display = 'none';
     document.body.insertBefore(span, document.body.firstChild);
 
-    if ((css(span, 'font-family')) !== 'FontAwesome') {
+    if ((css(span, 'font-family')) !== 'Font Awesome 6 Free') {
         announceProblem('@fortawesome/fontawesome-free');
     }
     document.body.removeChild(span);
 
     if ($('div.delight-vc.tinymce-editor').length) {
-        if (typeof tinymce == 'undefined') announceProblem('tinymce');
+        if (typeof tinymce == 'undefined') announceProblem('tinymce (maybe also tinymce-i18n)');
     }
 
 }
