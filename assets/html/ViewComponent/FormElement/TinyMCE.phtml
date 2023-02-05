@@ -1,8 +1,9 @@
-<? if ($this->is_collapsible()): ?>
-    <table class="tinymce-header">
-        <tr>
-            <td>
-                <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
+<div class='<?= $this->get_class_list() ?>'>
+    <? if ($this->is_collapsible()): ?>
+        <table class="vc-header">
+            <tr>
+                <td>
+                    <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
                     echo ' class=\'required\'' ?>>
                     <?= $this->get_title() ?>
                 </label>
@@ -12,15 +13,15 @@
             </td>
         </tr>
     </table>
-<? else: ?>
-    <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
+    <? else: ?>
+        <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
         echo ' class=\'required\'' ?>>
         <?= $this->get_title() ?>
     </label>
-<? endif ?>
-<hr>
-<div class="tinymce-editor" data-editor="<?= $this->get_name() ?>">
-    <textarea name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>' <? if ($this->is_required())
+    <? endif ?>
+    <hr>
+    <div class="vc-body" data-editor="<?= $this->get_name() ?>">
+        <textarea name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>' <? if ($this->is_required())
             echo ' data-required=\'true\'' ?>><?= $this->get_prefilled_value() ?></textarea>
     <script>
         tinyMCE.init({
@@ -33,5 +34,6 @@
             plugins: '<?= $this->get_plugin_list() ?>',
             toolbar: [<?= $this->get_toolbar_list() ?>],
         });
-    </script>
+        </script>
+    </div>
 </div>

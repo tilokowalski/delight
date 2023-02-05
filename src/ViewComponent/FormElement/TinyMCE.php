@@ -50,6 +50,11 @@ class TinyMCE extends TextArea {
         )
     );
 
+    public function __construct(string $name, ?string $title = null, ?bool $required = false) {
+        parent::__construct($name, $title, $required);
+        $this->add_class('tinymce-editor');
+    }
+
     public function set_collapsible(bool $collapsible = true): void {
         $this->collapsible = $collapsible;
     }

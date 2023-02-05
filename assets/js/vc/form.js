@@ -5,8 +5,8 @@ $(document).ready(function() {
 
         const form = $(this);
 
-        form.find('span.collapse-editor').click(function() {
-            $("div.tinymce-editor[data-editor='" + $(this).attr('data-editor') + "']").fadeToggle();
+        form.find('div.delight-vc.tinymce-editor span.collapse-editor').click(function() {
+            form.find("div.vc-body[data-editor='" + $(this).attr('data-editor') + "']").fadeToggle();
         });
 
         form.find(':input').on('input', function() {
