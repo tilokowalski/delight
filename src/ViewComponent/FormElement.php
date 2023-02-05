@@ -16,9 +16,10 @@ class FormElement extends \Delight\ViewComponent {
     private $inline = true;
 
     public function __construct(string $name, ?string $title = null, ?bool $required = false) {
-        $this->set_title($title);
-        $this->set_required($required);
         parent::__construct($name);
+        $this->set_required($required);
+        $this->set_title($title);
+        $this->add_class('form-element');
     }
     
     public function get_form() {

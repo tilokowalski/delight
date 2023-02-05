@@ -10,8 +10,12 @@ window.onload = function() {
         if (typeof tinymce == 'undefined') announceProblem('tinymce (maybe also tinymce-i18n)');
     }
 
+    if ($('div.delight-vc.g-recaptcha').length) {
+        if (typeof grecaptcha == 'undefined') announceProblem('google recaptcha');
+    }
+
 }
 
 function announceProblem(plugin) {
-    alert("delight dependency is missing: " + plugin + "\neither not included via npm or script tag with src missing / incorrect");
+    alert("delight dependency is missing: " + plugin + "\neither files dont exist (maybe npm?) or script tag src is missing / incorrect");
 }
