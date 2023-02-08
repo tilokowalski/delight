@@ -19,7 +19,7 @@ class FormElement extends \Delight\ViewComponent {
         parent::__construct($name);
         $this->set_required($required);
         $this->set_title($title);
-        $this->add_class('form-element');
+        $this->add_class('vc-form-element');
     }
     
     public function get_form() {

@@ -24,7 +24,7 @@ class Video extends \Delight\ViewComponent {
         $this->set_autoplay($autoplay);
         $this->set_muted($muted);
         
-        $this->add_class("video");
+        $this->add_class("vc-video");
         $this->add_class("paused");
     }
 

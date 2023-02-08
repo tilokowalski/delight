@@ -25,7 +25,7 @@ class Form extends \Delight\ViewComponent {
         parent::__construct($name);
         $this->set_method($method);
         $this->action = $action;
-        $this->add_class("form");
+        $this->add_class("vc-form");
     }
 
     public function get_form_elements() {

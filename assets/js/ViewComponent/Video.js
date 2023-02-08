@@ -1,5 +1,5 @@
 
-$('.delight-vc.video').each(function() {
+$('.delight-vc.vc-video').each(function() {
 
     const videoContainer = $(this);
 

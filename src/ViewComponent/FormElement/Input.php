@@ -14,6 +14,11 @@ class Input extends \Delight\ViewComponent\FormElement {
     private $min = 0;
     private $max = -1;
 
+    public function __construct(string $name, ?string $title = null, ?bool $required = false) {
+        parent::__construct($name, $title, $required);
+        $this->add_class('vc-input');
+    }
+
     public static function text(string $name, ?string $title = null, ?bool $required = false): self {
         $result = new self($name, $title, $required);
         return $result->set_type('text');

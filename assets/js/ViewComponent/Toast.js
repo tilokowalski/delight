@@ -11,7 +11,7 @@ class Toast {
         this.toast = document.createElement("div");
 
         $(this.toast).addClass("delight-vc");
-        $(this.toast).addClass("delight-toast");
+        $(this.toast).addClass("vc-toast");
 
         const message = document.createElement("p");
         const title = document.createElement("h1");
@@ -47,7 +47,7 @@ class Toast {
     }
 
     set position(value) {
-        const selector = 'div.delight-vc.delight-toast-container[data-position="' + value + '"]';
+        const selector = 'div.delight-vc.vc-toast-container[data-position="' + value + '"]';
         const container = $(selector)[0] || createContainer(value);
         container.append(this.toast);
     }
@@ -88,7 +88,7 @@ class Toast {
 function createContainer(position) {
     const container = document.createElement("div");
     $(container).addClass("delight-vc");
-    $(container).addClass("delight-toast-container");
+    $(container).addClass("vc-toast-container");
     $(container).attr('data-position', position);
     $('body').append(container);
     return container;

@@ -1,6 +1,6 @@
 <div class='<?= $this->get_class_list() ?>'>
     <? if ($this->is_collapsible()): ?>
-        <table class="vc-header">
+        <table class="header">
             <tr>
                 <td>
                     <label for='<?= $this->get_name() ?>' <? if ($this->is_required())
@@ -20,7 +20,7 @@
     </label>
     <? endif ?>
     <hr>
-    <div class="vc-body" data-editor="<?= $this->get_name() ?>">
+    <div class="body" data-editor="<?= $this->get_name() ?>">
         <textarea name='<?= $this->get_name() ?>' id='<?= $this->get_name() ?>' <? if ($this->is_required())
             echo ' data-required=\'true\'' ?>><?= $this->get_prefilled_value() ?></textarea>
     <script>

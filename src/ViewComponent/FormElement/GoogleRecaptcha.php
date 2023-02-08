@@ -15,7 +15,7 @@ class GoogleRecaptcha extends \Delight\ViewComponent\FormElement {
 
     public function __construct() {
         parent::__construct('g-recaptcha-response');
-        $this->add_class('g-recaptcha');
+        $this->add_class('vc-google-recaptcha');
     }
 
     public function set_key(string $key): self {

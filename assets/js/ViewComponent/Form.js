@@ -1,13 +1,9 @@
 
 $(document).ready(function() {
 
-    $('.delight-vc.form').each(function() {
+    $('.delight-vc.vc-form').each(function() {
 
         const form = $(this);
-
-        form.find('div.delight-vc.tinymce-editor span.collapse-editor').click(function() {
-            form.find("div.vc-body[data-editor='" + $(this).attr('data-editor') + "']").fadeToggle();
-        });
 
         form.find(':input').on('input', function() {
             var name = $(this).attr('name');
@@ -15,22 +11,6 @@ $(document).ready(function() {
             if (input_error.length) {
                 input_error.remove();
                 $(this).removeClass('error');
-            }
-        });
-
-        form.find('button.vc-imgupload-button').click(function() {
-            $(this).parent().find('input.vc-imgupload-input').click();
-        });
-
-        
-        form.find('input.vc-imgupload-input').change(function() {
-            var input = $(this);
-            if (this.files && this.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    input.parent().find('img.vc-imgupload-img').attr('src', e.target.result);
-                };
-                reader.readAsDataURL(this.files[0]);
             }
         });
 
