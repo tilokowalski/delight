@@ -66,13 +66,20 @@ class FormElement extends \Delight\ViewComponent {
         }
     }
 
-    public function get_value() {
+    private function get_raw_value() {
         if (!$this->is_set()) return null;
         switch ($this->form->get_method()) {
             case 'POST': return $_POST[$this->get_name()];
             case 'GET': return $_GET[$this->get_name()];
             default: throw new NotImplemented('no implementation for form method ' . $this->form->get_method());
         }
+    }
+
+    public function get_value() {
+        if ($this->get_raw_value() == null) return null;
+        $processed_value = str_replace("<", "[<]", $this->get_raw_value());
+        $processed_value = str_replace(">", "[>]", $processed_value);
+        return $processed_value;
     }
 
     public function set_prefilled_value(?string $prefilled_value = null) {
