@@ -66,7 +66,7 @@ class FormElement extends \Delight\ViewComponent {
         }
     }
 
-    private function get_raw_value() {
+    public function get_raw_value() {
         if (!$this->is_set()) return null;
         switch ($this->form->get_method()) {
             case 'POST': return $_POST[$this->get_name()];
