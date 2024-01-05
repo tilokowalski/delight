@@ -8,4 +8,5 @@ class NotImplemented extends \Delight\Exception {
         if (null === $message) $message = 'not implemented';
         parent::__construct($message);
     }
+    
 }

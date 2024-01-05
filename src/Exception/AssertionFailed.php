@@ -9,4 +9,5 @@ class AssertionFailed extends \Delight\Exception {
         if (null === $message) $message = 'assertion failed';
         parent::__construct($message);
     }
+    
 }

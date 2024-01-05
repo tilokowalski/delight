@@ -1,27 +1,24 @@
 {
-  "name": "delight",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kowalski2108/delight.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kowalski2108/delight/issues"
-  },
-  "homepage": "https://github.com/kowalski2108/delight#readme",
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-sass": "^5.1.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp-uglifycss": "^1.1.0",
-    "sass": "^1.56.2"
-  }
+    "name": "delight",
+    "version": "1.0.0",
+    "description": "Web Toolkit",
+    "author": "Tilo Kowalski",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "gulp"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tilokowalski/delight.git"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.16",
+        "gulp": "^4.0.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-postcss": "^9.0.1",
+        "gulp-sass": "^5.1.0",
+        "gulp-uglify": "^3.0.2",
+        "gulp-uglifycss": "^1.1.0",
+        "sass": "^1.56.1"
+    }
 }

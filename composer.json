@@ -1,8 +1,8 @@
 {
     "name": "tilokowalski/delight",
     "description": "Web Toolkit",
-    "type": "library",
     "license": "Apache-2.0",
+    "type": "library",
     "autoload": {
         "psr-4": {
             "Delight\\": "src/"
@@ -11,7 +11,7 @@
     "authors": [
         {
             "name": "Tilo Kowalski",
-            "email": "privat@tilokowalski.de"
+            "email": "dev@tilokowalski.de"
         }
     ],
     "minimum-stability": "stable",
